@@ -1,0 +1,42 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a href="/" class="navbar-brand">REGISTRO DE PROVEEDORES</a>
+</nav>
+
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+                <th>NO</th>
+                <th>EMPRESA</th>
+                <th>PROVEEDOR</th>
+                <th>DIRECCION</th>
+                <th>TELEFONO</th>
+                <th>RESPONSABLE</th>
+                <th>FECHA CREACION</th>
+                <th>OBSERVACIONES</th>
+                <th>ESTADO</th>
+                <th></th>
+                <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let User of TUser">
+                    <td>{{User.idprov}}</td>
+                    <td>{{User.idempresa}}</td>
+                    <td>{{User.proveedor}}</td>
+                    <td>{{User.direccion}}</td>
+                    <td>{{User.telefono}}</td>
+                    <td>{{User.responsable}}</td>
+                    <td>{{User.fecha_creacion}}</td>
+                    <td>{{User.observaciones}}</td>
+                    <td>{{User.estado}}</td>
+                    <td><button class="btn btn-danger">Eliminar</button></td>
+                    <td><button class="btn btn-success">Actualizar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

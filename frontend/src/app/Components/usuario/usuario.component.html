@@ -1,0 +1,40 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a href="/" class="navbar-brand">REGISTRO DE USUARIOS</a>
+</nav>
+
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+                <th>NO</th>
+                <th>EMPRESA</th>
+                <th>SUCURSAL</th>
+                <th>TIPO USUARIO</th>
+                <th>EMPLEADO</th>
+                <th>USUARIO</th>
+                <th>TIPO</th>
+                <th>ESTADO</th>
+                <th></th>
+                <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let User of TUser">
+                    <td>{{User.userid}}</td>
+                    <td>{{User.idempresa}}</td>
+                    <td>{{User.idsuc}}</td>
+                    <td>{{User.idtpusuario}}</td>
+                    <td>{{User.idemp}}</td>
+                    <td>{{User.usuario}}</td>
+                    <td>{{User.tipo}}</td>
+                    <td>{{User.estado}}</td>
+                    <td><button class="btn btn-danger">Eliminar</button></td>
+                    <td><button class="btn btn-success">Actualizar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

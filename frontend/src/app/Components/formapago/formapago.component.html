@@ -1,0 +1,32 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a href="/" class="navbar-brand">REGISTRO DE FORMAS DE PAGO</a>
+</nav>
+
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+                <th>NO</th>
+                <th>EMPRESA</th>
+                <th>FORMA DE PAGO</th>
+                <th>ESTADO</th>
+                <th></th>
+                <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let User of TUser">
+                    <td>{{User.idfpago}}</td>
+                    <td>{{User.idempresa}}</td>
+                    <td>{{User.formapago}}</td>
+                    <td>{{User.estado}}</td>
+                    <td><button class="btn btn-danger">Eliminar</button></td>
+                    <td><button class="btn btn-success">Actualizar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

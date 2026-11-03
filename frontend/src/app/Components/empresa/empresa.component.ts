@@ -1,0 +1,67 @@
+import { Component, OnInit  } from '@angular/core';
+
+import {  empresa } from 'src/app/interfaces/user';
+import { DataService } from '../../services/data.service';
+
+
+@Component({
+  selector: 'app-empresa',
+  templateUrl: './empresa.component.html',
+  styleUrls: ['./empresa.component.css']
+})
+export class EmpresaComponent implements OnInit{
+
+  TUser: any = [];
+  user: empresa = {
+    idempresa:  null ,
+    nombre: null,
+    direccion: null,
+    rtn: null,
+    telefono: null,
+    correo: null,
+    contacto: null,
+    fecha_creacion: null,
+    estado: 'Activo'
+
+
+}
+
+constructor(private Data: DataService) { }
+
+
+  ngOnInit(): void {
+    this.getUser();
+  }
+
+
+  getUser() {
+    this.Data.getAll('/empresa')
+      .subscribe(res => {
+          this.TUser = res;
+        
+        }, err => console.error(err));
+  }
+
+ AgregarValor(){
+    delete this.user.idempresa;   
+    this.Data.save(this.user,'/empresa')
+       .subscribe(
+         res => {
+
+this.getUser();
+         },
+         err => console.error(err)
+       );
+}
+  EliminarData(id: number){
+    this.Data.delete(id, '/empresa')
+      .subscribe(
+        res => {
+          this.getUser();
+        },
+        err => console.error(err)
+      );
+  }
+
+
+}

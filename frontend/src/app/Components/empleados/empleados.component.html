@@ -1,0 +1,54 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a href="/" class="navbar-brand">REGISTRO DE EMPLEADOS</a>
+</nav>
+
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+                <th>NO</th>
+                <th>EMPRESA</th>
+                <th>SUCURSAL</th>
+                <th>AREA</th>
+                <th>IDENTIDAD</th>
+                <th>FECHA NAC</th>
+                <th>NOMBRES</th>
+                <th>APELLIDOS</th>
+                <th>FEMENINO</th>
+                <th>MASCULINO</th>
+                <th>SOLTERO</th>
+                <th>CASADO</th>
+                <th>UNION LIBRE</th>
+                <th>DIRECCION</th>
+                <th>FECHA CREACION</th>
+                <th></th>
+                <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let User of TUser">
+                    <td>{{User.idemp}}</td>
+                    <td>{{User.idempresa}}</td>
+                    <td>{{User.idsuc}}</td>
+                    <td>{{User.idarea}}</td>
+                    <td>{{User.identidad}}</td>
+                    <td>{{User.fecha_nac}}</td>
+                    <td>{{User.nombres}}</td>
+                    <td>{{User.apellidos}}</td>
+                    <td>{{bit(User.femenino)}}</td>
+                    <td>{{bit(User.masculino)}}</td>
+                    <td>{{bit(User.soltero)}}</td>
+                    <td>{{bit(User.casado)}}</td>
+                    <td>{{bit(User.unionlibre)}}</td>
+                    <td>{{User.direccion}}</td>
+                    <td>{{User.fecha_creacion}}</td>
+                    <td><button class="btn btn-danger">Eliminar</button></td>
+                    <td><button class="btn btn-success">Actualizar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

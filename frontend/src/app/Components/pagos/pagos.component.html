@@ -1,0 +1,54 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a href="/" class="navbar-brand">REGISTRO DE PAGOS</a>
+</nav>
+
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+                <th>NO</th>
+                <th>EMPRESA</th>
+                <th>VENTA</th>
+                <th>SUCURSAL</th>
+                <th>CLIENTE</th>
+                <th>USUARIO</th>
+                <th>FORMA PAGO</th>
+                <th>FECHA PAGO</th>
+                <th>PRODUCTO</th>
+                <th>CANTIDAD</th>
+                <th>PRECIO</th>
+                <th>ISV</th>
+                <th>DESCUENTO</th>
+                <th>TOTAL</th>
+                <th>ESTADO</th>
+                <th></th>
+                <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let User of TUser">
+                    <td>{{User.idpago}}</td>
+                    <td>{{User.idempresa}}</td>
+                    <td>{{User.num_venta}}</td>
+                    <td>{{User.idsuc}}</td>
+                    <td>{{User.num_clie}}</td>
+                    <td>{{User.userid}}</td>
+                    <td>{{User.idfpago}}</td>
+                    <td>{{User.fecha_pago}}</td>
+                    <td>{{User.num_prod}}</td>
+                    <td>{{User.cantidad}}</td>
+                    <td>{{User.precio}}</td>
+                    <td>{{User.isv}}</td>
+                    <td>{{User.descuento}}</td>
+                    <td>{{User.total}}</td>
+                    <td>{{User.estado}}</td>
+                    <td><button class="btn btn-danger">Eliminar</button></td>
+                    <td><button class="btn btn-success">Actualizar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
