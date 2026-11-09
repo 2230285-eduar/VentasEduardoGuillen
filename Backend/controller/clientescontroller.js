@@ -11,7 +11,7 @@ controller.list = (req, res) => {
   });
 };
 
-// Ver un cliente por su número
+
 controller.edit = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
@@ -23,7 +23,7 @@ controller.edit = (req, res) => {
   });
 };
 
-// Crear un cliente
+
 controller.save = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
@@ -34,7 +34,7 @@ controller.save = (req, res) => {
   });
 };
 
-// Editar un cliente
+
 controller.update = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
@@ -45,7 +45,7 @@ controller.update = (req, res) => {
   });
 };
 
-// Borrar un cliente
+
 controller.delete = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
