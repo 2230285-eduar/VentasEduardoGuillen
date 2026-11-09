@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmpresaComponent} from './Components/empresa/empresa.component';
 
 import { EmpresaEditComponent } from './Components/empresa-edit/empresa-edit.component';
+import { AreasTrabajoEditComponent } from './Components/areas-trabajo-edit/areas-trabajo-edit.component';
+
+
 
 import { ProveedorComponent } from './Components/proveedor/proveedor.component';
 import { AreasTrabajoComponent } from './Components/areas-trabajo/areas-trabajo.component';
@@ -30,6 +33,11 @@ const routes: Routes = [
     path: 'empresa/edit/:id',
     component: EmpresaEditComponent
   },
+
+{
+  path: 'areas-trabajo/edit/:id',
+  component: AreasTrabajoEditComponent
+},
 
   { path: 'proveedor', component: ProveedorComponent },
   { path: 'areas-trabajo', component: AreasTrabajoComponent },

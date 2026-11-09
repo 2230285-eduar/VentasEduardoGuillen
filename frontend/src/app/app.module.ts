@@ -24,6 +24,7 @@ import { UsuarioComponent } from './Components/usuario/usuario.component';
 
 import { DataService } from './services/data.service';
 import { EmpresaEditComponent } from './Components/empresa-edit/empresa-edit.component';
+import { AreasTrabajoEditComponent } from './Components/areas-trabajo-edit/areas-trabajo-edit.component';
 
 
 
@@ -45,9 +46,11 @@ import { EmpresaEditComponent } from './Components/empresa-edit/empresa-edit.com
     SucursalesComponent,
     TipoproductoComponent,
     TipousuarioComponent,
-    UsuarioComponent,
-    EmpresaEditComponent
+    UsuarioComponent,    
+    EmpresaEditComponent, AreasTrabajoEditComponent
   ],
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
