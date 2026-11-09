@@ -1,6 +1,6 @@
 const controller = {};
 
-controller.listar = (req, res) => {
+controller.list = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
     conn.query('SELECT * FROM encabezado_venta', (err, rows) => {
@@ -10,7 +10,7 @@ controller.listar = (req, res) => {
   });
 };
 
-controller.buscar = (req, res) => {
+controller.edit = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
     conn.query('SELECT * FROM encabezado_venta WHERE num_venta = ?', [req.params.id], (err, rows) => {
@@ -21,7 +21,7 @@ controller.buscar = (req, res) => {
   });
 };
 
-controller.crear = (req, res) => {
+controller.save = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
     conn.query('INSERT INTO encabezado_venta SET ?', [req.body], (err, result) => {
@@ -31,7 +31,7 @@ controller.crear = (req, res) => {
   });
 };
 
-controller.actualizar = (req, res) => {
+controller.update = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
     conn.query('UPDATE encabezado_venta SET ? WHERE num_venta = ?', [req.body, req.params.id], (err) => {
@@ -41,7 +41,7 @@ controller.actualizar = (req, res) => {
   });
 };
 
-controller.eliminar = (req, res) => {
+controller.delete = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
     conn.query('DELETE FROM encabezado_venta WHERE num_venta = ?', [req.params.id], (err) => {

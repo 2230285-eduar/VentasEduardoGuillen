@@ -1,7 +1,7 @@
 const controller = {};
 
-// Ver todos los clientes
-controller.listar = (req, res) => {
+
+controller.list = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
     conn.query('SELECT * FROM clientes', (err, rows) => {
@@ -12,7 +12,7 @@ controller.listar = (req, res) => {
 };
 
 // Ver un cliente por su número
-controller.buscar = (req, res) => {
+controller.edit = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
     conn.query('SELECT * FROM clientes WHERE num_clie = ?', [req.params.id], (err, rows) => {
@@ -24,7 +24,7 @@ controller.buscar = (req, res) => {
 };
 
 // Crear un cliente
-controller.crear = (req, res) => {
+controller.save = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
     conn.query('INSERT INTO clientes SET ?', [req.body], (err, result) => {
@@ -35,7 +35,7 @@ controller.crear = (req, res) => {
 };
 
 // Editar un cliente
-controller.actualizar = (req, res) => {
+controller.update = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
     conn.query('UPDATE clientes SET ? WHERE num_clie = ?', [req.body, req.params.id], (err) => {
@@ -46,7 +46,7 @@ controller.actualizar = (req, res) => {
 };
 
 // Borrar un cliente
-controller.eliminar = (req, res) => {
+controller.delete = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).json(err);
     conn.query('DELETE FROM clientes WHERE num_clie = ?', [req.params.id], (err) => {
