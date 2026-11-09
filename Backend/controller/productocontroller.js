@@ -1,62 +1,54 @@
 const controller = {};
 
-controller.list = (req, res) => {
-    req.getConnection((error, conn) => {
-        if (error) return res.json(error);
-        conn.query('select * from producto', (err, producto) => {
-            if (err) return res.json(err);
-            res.json(producto);
-        });
+controller.listar = (req, res) => {
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).json(err);
+    conn.query('SELECT * FROM producto', (err, rows) => {
+      if (err) return res.status(500).json(err);
+      res.json(rows);
     });
+  });
 };
 
-controller.edit = (req, res) => {
-    const { num_prod } = req.params;
-
-    req.getConnection((error, conn) => {
-        if (error) return res.json(error);
-        conn.query('select * from producto where num_prod = ?', [num_prod], (err, producto) => {
-            if (err) return res.json(err);
-            res.json(producto[0]);
-        });
+controller.buscar = (req, res) => {
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).json(err);
+    conn.query('SELECT * FROM producto WHERE num_prod = ?', [req.params.id], (err, rows) => {
+      if (err) return res.status(500).json(err);
+      if (rows.length === 0) return res.status(404).json({ mensaje: 'Producto no encontrado' });
+      res.json(rows[0]);
     });
+  });
 };
 
-controller.save = (req, res) => {
-    const data = req.body;
-
-    req.getConnection((error, conn) => {
-        if (error) return res.json(error);
-        conn.query('insert into producto set ?', [data], (err, producto) => {
-            if (err) return res.json(err);
-            res.json(producto);
-        });
+controller.crear = (req, res) => {
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).json(err);
+    conn.query('INSERT INTO producto SET ?', [req.body], (err, result) => {
+      if (err) return res.status(500).json(err);
+      res.status(201).json({ mensaje: 'Producto creado', id: result.insertId });
     });
+  });
 };
 
-controller.update = (req, res) => {
-    const { num_prod } = req.params;
-    const nuevo_producto = req.body;
-
-    req.getConnection((error, conn) => {
-        if (error) return res.json(error);
-        conn.query('update producto set ? where num_prod = ?', [nuevo_producto, num_prod], (err, rows) => {
-            if (err) return res.json(err);
-            res.json({ message: "Registro Actualizado" });
-        });
+controller.actualizar = (req, res) => {
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).json(err);
+    conn.query('UPDATE producto SET ? WHERE num_prod = ?', [req.body, req.params.id], (err) => {
+      if (err) return res.status(500).json(err);
+      res.json({ mensaje: 'Producto actualizado' });
     });
+  });
 };
 
-controller.delete = (req, res) => {
-    const { num_prod } = req.params;
-
-    req.getConnection((error, conn) => {
-        if (error) return res.json(error);
-        conn.query('update producto set estado = "inactivo" where num_prod = ?', [num_prod], (err, rows) => {
-            if (err) return res.json(err);
-            res.json({ message: "Registro Eliminado" });
-        });
+controller.eliminar = (req, res) => {
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).json(err);
+    conn.query('DELETE FROM producto WHERE num_prod = ?', [req.params.id], (err) => {
+      if (err) return res.status(500).json(err);
+      res.json({ mensaje: 'Producto eliminado' });
     });
+  });
 };
 
 module.exports = controller;
