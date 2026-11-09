@@ -29,10 +29,10 @@ getOne(id: string, url: string) {
   delete(id: number, url: string) {
     return this.http.delete(`${this.API_URI}` + url + `/${id}`);
   }
-  update(id: string|number, updated: User , url: string): Observable<User> {
+  update(id: string|number, updated: any , url: string): Observable<any> {
     return this.http.post(`${this.API_URI}` + url + `/${id}`, updated);
   }
-  save(Usuario: User, url: string) {
+  save(Usuario: any, url: string) {
      let headers = new HttpHeaders();
      headers = new HttpHeaders().set('Content-Type', 'application/json');
      return this.http.post(`${this.API_URI}` + url , JSON.stringify(Usuario), {headers: headers})

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { cxcobrar } from 'src/app/interfaces/user';
+import { cxcobrar } from '../../interfaces/user';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -38,8 +38,51 @@ export class CxcobrarComponent implements OnInit {
 
   getUser() {
     this.Data.getAll('/cxcobrar')
-      .subscribe(res => {
-        this.TUser = res;
+      .subscribe((res: any) => {
+        if (Array.isArray(res)) {
+          this.TUser = res;
+        } else {
+          console.error(res);
+        }
       }, err => console.error(err));
+  }
+
+  AgregarValor() {
+    delete this.user.idcxc;
+    this.Data.save(this.user, '/cxcobrar')
+      .subscribe(
+        res => {
+          this.getUser();
+          this.user = {
+            idcxc: null,
+            idempresa: null,
+            num_venta: null,
+            idsuc: null,
+            num_clie: null,
+            userid: null,
+            idfpago: null,
+            fecha_venta: null,
+            num_prod: null,
+            cantidad: null,
+            precio: null,
+            isv: null,
+            descuento: null,
+            total: null,
+            fecha_pago: null,
+            estado: 'Activo'
+          };
+        },
+        err => console.error(err)
+      );
+  }
+
+  EliminarData(id: number) {
+    this.Data.delete(id, '/cxcobrar')
+      .subscribe(
+        res => {
+          this.getUser();
+        },
+        err => console.error(err)
+      );
   }
 }

@@ -25,7 +25,7 @@ app.use(cors(
   ));
 
 
-// rutas backend
+
 const empresaRoutes = require('./rutas/empresa');
 const clientesRoutes = require('./rutas/clientes');
 const proveedorRoutes = require('./rutas/proveedor');
@@ -59,7 +59,7 @@ app.use(myConnection(mysql,{
 app.use(express.urlencoded({extended: false}));
 
 
-  //aqui inicia
+
 app.listen(app.get('port'), () =>{
     console.log("PUERTO 3000");
 });	
@@ -83,9 +83,9 @@ app.use('/api/tipoproducto', tipoproductoRoutes);
 app.use('/api/tipousuario', tipousuarioRoutes);
 app.use('/api/usuario', usuarioRoutes);
 
-// archivos estaticos frontend
+
 app.use(express.static(path.join(__dirname,'public')));
 
 
-// archivos estaticos frontend
+
 app.use(express.static(path.join(__dirname,'public')));

@@ -25,6 +25,10 @@ import { UsuarioComponent } from './Components/usuario/usuario.component';
 import { DataService } from './services/data.service';
 import { EmpresaEditComponent } from './Components/empresa-edit/empresa-edit.component';
 import { AreasTrabajoEditComponent } from './Components/areas-trabajo-edit/areas-trabajo-edit.component';
+import { ClientesEditComponent } from './Components/clientes-edit/clientes-edit.component';
+import { CxcobrarEditComponent } from './Components/cxcobrar-edit/cxcobrar-edit.component';
+import { CxpagarEditComponent } from './Components/cxpagar-edit/cxpagar-edit.component';
+import { EmpleadosEditComponent } from './Components/empleados-edit/empleados-edit.component';
 
 
 
@@ -47,7 +51,7 @@ import { AreasTrabajoEditComponent } from './Components/areas-trabajo-edit/areas
     TipoproductoComponent,
     TipousuarioComponent,
     UsuarioComponent,    
-    EmpresaEditComponent, AreasTrabajoEditComponent
+    EmpresaEditComponent, AreasTrabajoEditComponent, ClientesEditComponent, CxcobrarEditComponent, CxpagarEditComponent, EmpleadosEditComponent
   ],
 
 

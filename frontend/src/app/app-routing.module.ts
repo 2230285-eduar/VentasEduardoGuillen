@@ -5,6 +5,12 @@ import { EmpresaComponent} from './Components/empresa/empresa.component';
 
 import { EmpresaEditComponent } from './Components/empresa-edit/empresa-edit.component';
 import { AreasTrabajoEditComponent } from './Components/areas-trabajo-edit/areas-trabajo-edit.component';
+import { ClientesEditComponent } from './Components/clientes-edit/clientes-edit.component';
+import { CxcobrarEditComponent } from './Components/cxcobrar-edit/cxcobrar-edit.component';
+import { CxpagarEditComponent } from './Components/cxpagar-edit/cxpagar-edit.component';
+import { EmpleadosEditComponent } from './Components/empleados-edit/empleados-edit.component';
+
+
 
 
 
@@ -38,6 +44,23 @@ const routes: Routes = [
   path: 'areas-trabajo/edit/:id',
   component: AreasTrabajoEditComponent
 },
+{
+  path: 'clientes/edit/:id',
+  component: ClientesEditComponent
+},
+{
+  path: 'cxcobrar/edit/:id',
+  component: CxcobrarEditComponent
+},
+{
+  path: 'cxpagar/edit/:id',
+  component: CxpagarEditComponent
+},
+{
+  path: 'empleados/edit/:id',
+  component: EmpleadosEditComponent
+},
+
 
   { path: 'proveedor', component: ProveedorComponent },
   { path: 'areas-trabajo', component: AreasTrabajoComponent },

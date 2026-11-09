@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { empleados } from 'src/app/interfaces/user';
+import { empleados } from '../../interfaces/user';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -37,12 +37,53 @@ export class EmpleadosComponent implements OnInit {
 
   getUser() {
     this.Data.getAll('/empleados')
-      .subscribe(res => {
-        this.TUser = res;
+      .subscribe((res: any) => {
+        if (Array.isArray(res)) {
+          this.TUser = res;
+        } else {
+          console.error(res);
+        }
       }, err => console.error(err));
   }
 
-  // los campos bit de MySQL pueden llegar como Buffer, número o booleano
+  AgregarValor() {
+    delete this.user.idemp;
+    this.Data.save(this.user, '/empleados')
+      .subscribe(
+        res => {
+          this.getUser();
+          this.user = {
+            idemp: null,
+            idempresa: null,
+            idsuc: null,
+            idarea: null,
+            identidad: null,
+            fecha_nac: null,
+            nombres: null,
+            apellidos: null,
+            femenino: null,
+            masculino: null,
+            soltero: null,
+            casado: null,
+            unionlibre: null,
+            direccion: null,
+            fecha_creacion: null
+          };
+        },
+        err => console.error(err)
+      );
+  }
+
+  EliminarData(id: number) {
+    this.Data.delete(id, '/empleados')
+      .subscribe(
+        res => {
+          this.getUser();
+        },
+        err => console.error(err)
+      );
+  }
+
   bit(v: any): string {
     const n = v && v.data ? v.data[0] : v;
     return n ? 'Si' : 'No';
