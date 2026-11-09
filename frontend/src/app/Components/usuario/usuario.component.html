@@ -2,36 +2,89 @@
   <a href="/" class="navbar-brand">REGISTRO DE USUARIOS</a>
 </nav>
 
+<div class="row mt-5">
+  <div class="card">
+    <div class="card-body">
+      <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="AgregarValor()" novalidate>
+        <div class="form-group">
+          <label for="" class="control-label" hidden>Registro No.</label>
+          <input type="text" readonly="readonly" [(ngModel)]="user.userid" name="userid" placeholder="No" class="form-control" required hidden>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Empresa (ID)</label>
+          <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EMPRESA (ID)" class="form-control" autofocus>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Sucursal (ID)</label>
+          <input type="number" [(ngModel)]="user.idsuc" name="idsuc" placeholder="DIGITE SUCURSAL (ID)" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Tipo de usuario (ID)</label>
+          <input type="number" [(ngModel)]="user.idtpusuario" name="idtpusuario" placeholder="DIGITE TIPO DE USUARIO (ID)" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Empleado (ID)</label>
+          <input type="number" [(ngModel)]="user.idemp" name="idemp" placeholder="DIGITE EMPLEADO (ID)" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Usuario</label>
+          <input type="text" [(ngModel)]="user.usuario" name="usuario" placeholder="DIGITE USUARIO" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Clave</label>
+          <input type="password" [(ngModel)]="user.clave" name="clave" placeholder="DIGITE CLAVE" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Tipo</label>
+          <input type="text" [(ngModel)]="user.tipo" name="tipo" placeholder="DIGITE TIPO" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary" formnovalidate value="Save" onclick="javascript:alert('Registro Almacenado')">
+          Agregar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+
 <div class="container-fluid">
   <div class="row mt-4">
     <div class="table-responsive">
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
-                <th>NO</th>
-                <th>EMPRESA</th>
-                <th>SUCURSAL</th>
-                <th>TIPO USUARIO</th>
-                <th>EMPLEADO</th>
-                <th>USUARIO</th>
-                <th>TIPO</th>
-                <th>ESTADO</th>
-                <th></th>
-                <th></th>
+          <th>NO</th>
+          <th>EMPRESA</th>
+          <th>SUCURSAL</th>
+          <th>TIPO USUARIO</th>
+          <th>EMPLEADO</th>
+          <th>USUARIO</th>
+          <th>TIPO</th>
+          <th>ESTADO</th>
+          <th></th>
+          <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let User of TUser">
-                    <td>{{User.userid}}</td>
-                    <td>{{User.idempresa}}</td>
-                    <td>{{User.idsuc}}</td>
-                    <td>{{User.idtpusuario}}</td>
-                    <td>{{User.idemp}}</td>
-                    <td>{{User.usuario}}</td>
-                    <td>{{User.tipo}}</td>
-                    <td>{{User.estado}}</td>
-                    <td><button class="btn btn-danger">Eliminar</button></td>
-                    <td><button class="btn btn-success">Actualizar</button></td>
+          <td>{{User.userid}}</td>
+          <td>{{User.idempresa}}</td>
+          <td>{{User.idsuc}}</td>
+          <td>{{User.idtpusuario}}</td>
+          <td>{{User.idemp}}</td>
+          <td>{{User.usuario}}</td>
+          <td>{{User.tipo}}</td>
+          <td>{{User.estado}}</td>
+          <td><button class="btn btn-danger" (click)="EliminarData(User.userid)" onclick="javascript:alert('Registro Eliminado')">Eliminar</button></td>
+          <td><button class="btn btn-success" [routerLink]="['/usuario/edit', User.userid]">Actualizar</button></td>
           </tr>
         </tbody>
       </table>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { tipoproducto } from 'src/app/interfaces/user';
+import { tipoproducto } from '../../interfaces/user';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -26,8 +26,39 @@ export class TipoproductoComponent implements OnInit {
 
   getUser() {
     this.Data.getAll('/tipoproducto')
-      .subscribe(res => {
-        this.TUser = res;
+      .subscribe((res: any) => {
+        if (Array.isArray(res)) {
+          this.TUser = res;
+        } else {
+          console.error(res);
+        }
       }, err => console.error(err));
+  }
+
+  AgregarValor() {
+    delete this.user.idtpprod;
+    this.Data.save(this.user, '/tipoproducto')
+      .subscribe(
+        res => {
+          this.getUser();
+          this.user = {
+            idtpprod: null,
+            idempresa: null,
+            tipo: null,
+            estado: 'Activo'
+          };
+        },
+        err => console.error(err)
+      );
+  }
+
+  EliminarData(id: number) {
+    this.Data.delete(id, '/tipoproducto')
+      .subscribe(
+        res => {
+          this.getUser();
+        },
+        err => console.error(err)
+      );
   }
 }

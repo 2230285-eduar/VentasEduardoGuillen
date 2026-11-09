@@ -2,46 +2,119 @@
   <a href="/" class="navbar-brand">REGISTRO DE PRODUCTOS</a>
 </nav>
 
+<div class="row mt-5">
+  <div class="card">
+    <div class="card-body">
+      <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="AgregarValor()" novalidate>
+        <div class="form-group">
+          <label for="" class="control-label" hidden>Registro No.</label>
+          <input type="text" readonly="readonly" [(ngModel)]="user.num_prod" name="num_prod" placeholder="No" class="form-control" required hidden>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Empresa (ID)</label>
+          <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EMPRESA (ID)" class="form-control" autofocus>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Sucursal (ID)</label>
+          <input type="number" [(ngModel)]="user.idsuc" name="idsuc" placeholder="DIGITE SUCURSAL (ID)" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Tipo de producto (ID)</label>
+          <input type="number" [(ngModel)]="user.idtpprod" name="idtpprod" placeholder="DIGITE TIPO DE PRODUCTO (ID)" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Descripcion</label>
+          <input type="text" [(ngModel)]="user.descripcion" name="descripcion" placeholder="DIGITE DESCRIPCION" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Presentacion</label>
+          <input type="text" [(ngModel)]="user.presentacion" name="presentacion" placeholder="DIGITE PRESENTACION" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Marca</label>
+          <input type="text" [(ngModel)]="user.marca" name="marca" placeholder="DIGITE MARCA" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Valor</label>
+          <input type="number" [(ngModel)]="user.valor" name="valor" placeholder="DIGITE VALOR" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Precio Venta</label>
+          <input type="number" [(ngModel)]="user.precioventa" name="precioventa" placeholder="DIGITE PRECIO VENTA" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Existencia</label>
+          <input type="number" [(ngModel)]="user.existencia" name="existencia" placeholder="DIGITE EXISTENCIA" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Fecha Ingreso</label>
+          <input type="date" [(ngModel)]="user.fecha_ingreso" name="fecha_ingreso" placeholder="Seleccione la Fecha" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">Fecha Actualiza</label>
+          <input type="date" [(ngModel)]="user.fecha_actualiza" name="fecha_actualiza" placeholder="Seleccione la Fecha" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary" formnovalidate value="Save" onclick="javascript:alert('Registro Almacenado')">
+          Agregar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+
 <div class="container-fluid">
   <div class="row mt-4">
     <div class="table-responsive">
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
-                <th>NO</th>
-                <th>EMPRESA</th>
-                <th>SUCURSAL</th>
-                <th>TIPO PRODUCTO</th>
-                <th>DESCRIPCION</th>
-                <th>PRESENTACION</th>
-                <th>MARCA</th>
-                <th>VALOR</th>
-                <th>PRECIO VENTA</th>
-                <th>EXISTENCIA</th>
-                <th>FECHA INGRESO</th>
-                <th>FECHA ACTUALIZA</th>
-                <th>ESTADO</th>
-                <th></th>
-                <th></th>
+          <th>NO</th>
+          <th>EMPRESA</th>
+          <th>SUCURSAL</th>
+          <th>TIPO PRODUCTO</th>
+          <th>DESCRIPCION</th>
+          <th>PRESENTACION</th>
+          <th>MARCA</th>
+          <th>VALOR</th>
+          <th>PRECIO VENTA</th>
+          <th>EXISTENCIA</th>
+          <th>FECHA INGRESO</th>
+          <th>FECHA ACTUALIZA</th>
+          <th>ESTADO</th>
+          <th></th>
+          <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let User of TUser">
-                    <td>{{User.num_prod}}</td>
-                    <td>{{User.idempresa}}</td>
-                    <td>{{User.idsuc}}</td>
-                    <td>{{User.idtpprod}}</td>
-                    <td>{{User.descripcion}}</td>
-                    <td>{{User.presentacion}}</td>
-                    <td>{{User.marca}}</td>
-                    <td>{{User.valor}}</td>
-                    <td>{{User.precioventa}}</td>
-                    <td>{{User.existencia}}</td>
-                    <td>{{User.fecha_ingreso}}</td>
-                    <td>{{User.fecha_actualiza}}</td>
-                    <td>{{User.estado}}</td>
-                    <td><button class="btn btn-danger">Eliminar</button></td>
-                    <td><button class="btn btn-success">Actualizar</button></td>
+          <td>{{User.num_prod}}</td>
+          <td>{{User.idempresa}}</td>
+          <td>{{User.idsuc}}</td>
+          <td>{{User.idtpprod}}</td>
+          <td>{{User.descripcion}}</td>
+          <td>{{User.presentacion}}</td>
+          <td>{{User.marca}}</td>
+          <td>{{User.valor}}</td>
+          <td>{{User.precioventa}}</td>
+          <td>{{User.existencia}}</td>
+          <td>{{User.fecha_ingreso | date:'dd/MM/yyyy'}}</td>
+          <td>{{User.fecha_actualiza | date:'dd/MM/yyyy'}}</td>
+          <td>{{User.estado}}</td>
+          <td><button class="btn btn-danger" (click)="EliminarData(User.num_prod)" onclick="javascript:alert('Registro Eliminado')">Eliminar</button></td>
+          <td><button class="btn btn-success" [routerLink]="['/producto/edit', User.num_prod]">Actualizar</button></td>
           </tr>
         </tbody>
       </table>

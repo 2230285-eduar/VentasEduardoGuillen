@@ -29,6 +29,14 @@ import { ClientesEditComponent } from './Components/clientes-edit/clientes-edit.
 import { CxcobrarEditComponent } from './Components/cxcobrar-edit/cxcobrar-edit.component';
 import { CxpagarEditComponent } from './Components/cxpagar-edit/cxpagar-edit.component';
 import { EmpleadosEditComponent } from './Components/empleados-edit/empleados-edit.component';
+import { FormapagoEditComponent } from './Components/formapago-edit/formapago-edit.component';
+import { PagosEditComponent } from './Components/pagos-edit/pagos-edit.component';
+import { ProductoEditComponent } from './Components/producto-edit/producto-edit.component';
+import { ProveedorEditComponent } from './Components/proveedor-edit/proveedor-edit.component';
+import { SucursalesEditComponent } from './Components/sucursales-edit/sucursales-edit.component';
+import { TipoproductoEditComponent } from './Components/tipoproducto-edit/tipoproducto-edit.component';
+import { TipousuarioEditComponent } from './Components/tipousuario-edit/tipousuario-edit.component';
+import { UsuarioEditComponent } from './Components/usuario-edit/usuario-edit.component';
 
 
 
@@ -51,7 +59,7 @@ import { EmpleadosEditComponent } from './Components/empleados-edit/empleados-ed
     TipoproductoComponent,
     TipousuarioComponent,
     UsuarioComponent,    
-    EmpresaEditComponent, AreasTrabajoEditComponent, ClientesEditComponent, CxcobrarEditComponent, CxpagarEditComponent, EmpleadosEditComponent
+    EmpresaEditComponent, AreasTrabajoEditComponent, ClientesEditComponent, CxcobrarEditComponent, CxpagarEditComponent, EmpleadosEditComponent, FormapagoEditComponent, PagosEditComponent, ProductoEditComponent, ProveedorEditComponent, SucursalesEditComponent, TipoproductoEditComponent, TipousuarioEditComponent, UsuarioEditComponent
   ],
 
 

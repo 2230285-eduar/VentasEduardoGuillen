@@ -9,7 +9,14 @@ import { ClientesEditComponent } from './Components/clientes-edit/clientes-edit.
 import { CxcobrarEditComponent } from './Components/cxcobrar-edit/cxcobrar-edit.component';
 import { CxpagarEditComponent } from './Components/cxpagar-edit/cxpagar-edit.component';
 import { EmpleadosEditComponent } from './Components/empleados-edit/empleados-edit.component';
-
+import { FormapagoEditComponent } from './Components/formapago-edit/formapago-edit.component';
+import { PagosEditComponent } from './Components/pagos-edit/pagos-edit.component';
+import { ProductoEditComponent } from './Components/producto-edit/producto-edit.component';
+import { ProveedorEditComponent } from './Components/proveedor-edit/proveedor-edit.component';
+import { SucursalesEditComponent } from './Components/sucursales-edit/sucursales-edit.component';
+import { TipoproductoEditComponent } from './Components/tipoproducto-edit/tipoproducto-edit.component';
+import { TipousuarioEditComponent } from './Components/tipousuario-edit/tipousuario-edit.component';
+import { UsuarioEditComponent } from './Components/usuario-edit/usuario-edit.component';
 
 
 
@@ -60,6 +67,36 @@ const routes: Routes = [
   path: 'empleados/edit/:id',
   component: EmpleadosEditComponent
 },
+
+
+{
+  path: 'formapago/edit/:id',
+  component: FormapagoEditComponent
+},{
+  path: 'pagos/edit/:id',
+  component: PagosEditComponent
+},{
+  path: 'producto/edit/:id',
+  component: ProductoEditComponent
+},{
+  path: 'proveedor/edit/:id',
+  component: ProveedorEditComponent
+},{
+  path: 'sucursales/edit/:id',
+  component: SucursalesEditComponent
+},{
+  path: 'tipoproducto/edit/:id',
+  component: TipoproductoEditComponent
+},{
+  path: 'tipousuario/edit/:id',
+  component: TipousuarioEditComponent
+},{
+  path: 'usuario/edit/:id',
+  component: UsuarioEditComponent
+},
+
+
+
 
 
   { path: 'proveedor', component: ProveedorComponent },

@@ -122,7 +122,7 @@
           <td>{{User.idsuc}}</td>
           <td>{{User.idarea}}</td>
           <td>{{User.identidad}}</td>
-          <td>{{User.fecha_nac}}</td>
+          <td>{{User.fecha_nac | date:'dd/MM/yyyy'}}</td>
           <td>{{User.nombres}}</td>
           <td>{{User.apellidos}}</td>
           <td>{{bit(User.femenino)}}</td>
@@ -131,7 +131,7 @@
           <td>{{bit(User.casado)}}</td>
           <td>{{bit(User.unionlibre)}}</td>
           <td>{{User.direccion}}</td>
-          <td>{{User.fecha_creacion}}</td>
+          <td>{{User.fecha_creacion | date:'dd/MM/yyyy'}}</td>
           <td><button class="btn btn-danger" (click)="EliminarData(User.idemp)" onclick="javascript:alert('Registro Eliminado')">Eliminar</button></td>
           <td><button class="btn btn-success" [routerLink]="['/empleados/edit', User.idemp]">Actualizar</button></td>
           </tr>
