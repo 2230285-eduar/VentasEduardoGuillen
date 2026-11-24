@@ -33,6 +33,55 @@ getOne(id: string, url: string) {
     return this.http.post(`${this.API_URI}` + url + `/${id}`, updated);
   }
 
+  
+
+
+
+
+
+
+
+  getDropListFormapago():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/formapago')
+}
+
+getDropListClientes():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/clientes')
+}
+
+getDropListProducto():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/producto')
+}
+
+getDropListEncabezadoVenta():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/encabezado_venta')
+}
+
+getDropListUsuario():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/usuario')
+}
+
+getDropListProveedor():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/proveedor')
+}
+
+getDropListEncabezadoCompra():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/encabezado_compra')
+}
+
+getDropListTipoProducto():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/tipoproducto')
+}
+
+getDropListTipoUsuario():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/tipousuario')
+}
+
+getDropListEmpleados():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/empleados')
+}
+
+
 getDropListEmpresa():Observable<any[]>{
 return this.http.get<any>(this.API_URI+'/empresa')
 }

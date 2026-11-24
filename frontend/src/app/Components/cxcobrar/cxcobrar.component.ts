@@ -30,11 +30,55 @@ export class CxcobrarComponent implements OnInit {
     estado: 'Activo'
   };
 
+  Empresalist: any;
+Sucursaleslist: any;
+Formapagolist: any;
+Clienteslist: any;
+Productolist: any;
+EncabezadoVentalist: any;
+Usuariolist: any;
+  
   constructor(private Data: DataService) { }
 
   ngOnInit(): void {
     this.getUser();
+    this.getDropListEmpresa();
+this.getDropListSucursales();
+this.getDropListFormapago();
+this.getDropListClientes();
+this.getDropListProducto();
+this.getDropListEncabezadoVenta();
+this.getDropListUsuario();
   }
+
+getDropListEmpresa() {
+  this.Data.getDropListEmpresa().subscribe((data:any) => { this.Empresalist = data; })
+}
+
+getDropListSucursales() {
+  this.Data.getDropListSucursales().subscribe((data:any) => { this.Sucursaleslist = data; })
+}
+
+getDropListFormapago() {
+  this.Data.getDropListFormapago().subscribe((data:any) => { this.Formapagolist = data; })
+}
+
+getDropListClientes() {
+  this.Data.getDropListClientes().subscribe((data:any) => { this.Clienteslist = data; })
+}
+
+getDropListProducto() {
+  this.Data.getDropListProducto().subscribe((data:any) => { this.Productolist = data; })
+}
+
+getDropListEncabezadoVenta() {
+  this.Data.getDropListEncabezadoVenta().subscribe((data:any) => { this.EncabezadoVentalist = data; })
+}
+
+getDropListUsuario() {
+  this.Data.getDropListUsuario().subscribe((data:any) => { this.Usuariolist = data; })
+}
+
 
   getUser() {
     this.Data.getAll('/cxcobrar')

@@ -27,12 +27,40 @@ export class ProductoComponent implements OnInit {
     estado: 'Activo'
   };
 
+
+
+
+  Empresalist: any;
+Sucursaleslist: any;
+TipoProductolist: any;
+
   constructor(private Data: DataService) { }
 
   ngOnInit(): void {
     this.getUser();
+    this.getDropListEmpresa();
+    this.getDropListSucursales();
+    this.getDropListTipoProducto();
   }
 
+
+  getDropListEmpresa() {
+  this.Data.getDropListEmpresa().subscribe((data:any) => {
+    this.Empresalist = data;
+  })
+}
+
+getDropListSucursales() {
+  this.Data.getDropListSucursales().subscribe((data:any) => {
+    this.Sucursaleslist = data;
+  })
+}
+
+getDropListTipoProducto() {
+  this.Data.getDropListTipoProducto().subscribe((data:any) => {
+    this.TipoProductolist = data;
+  })
+}
   getUser() {
     this.Data.getAll('/producto')
       .subscribe((res: any) => {

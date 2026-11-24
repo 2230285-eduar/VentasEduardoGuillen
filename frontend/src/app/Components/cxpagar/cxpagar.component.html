@@ -12,9 +12,11 @@
         </div>
 
         <div class="form-group">
-          <label for="" class="control-label">Compra (No.)</label>
-          <input type="number" [(ngModel)]="user.num_compra" name="num_compra" placeholder="DIGITE COMPRA (NO.)" class="form-control" autofocus>
-        </div>
+  <label for="" class="control-label">Compra No.</label>
+  <select class="form-control" [(ngModel)]="user.num_compra" name="num_compra" required>
+    <option *ngFor="let lista of EncabezadoCompralist" value={{lista.num_compra}}>{{lista.num_compra}}</option>
+  </select>
+</div>
 
         <div class="form-group">
           <label for="" class="control-label">Empresa (ID)</label>
@@ -27,9 +29,11 @@
         </div>
 
         <div class="form-group">
-          <label for="" class="control-label">Proveedor (ID)</label>
-          <input type="number" [(ngModel)]="user.idprov" name="idprov" placeholder="DIGITE PROVEEDOR (ID)" class="form-control">
-        </div>
+  <label for="" class="control-label">Proveedor</label>
+  <select class="form-control" [(ngModel)]="user.idprov" name="idprov" required>
+    <option *ngFor="let lista of Proveedorlist" value={{lista.idprov}}>{{lista.proveedor}}</option>
+  </select>
+</div>
 
         <div class="form-group">
           <label for="" class="control-label">Usuario (ID)</label>
