@@ -37,7 +37,11 @@ import { SucursalesEditComponent } from './Components/sucursales-edit/sucursales
 import { TipoproductoEditComponent } from './Components/tipoproducto-edit/tipoproducto-edit.component';
 import { TipousuarioEditComponent } from './Components/tipousuario-edit/tipousuario-edit.component';
 import { UsuarioEditComponent } from './Components/usuario-edit/usuario-edit.component';
+import { NavegacionComponent } from './Components/navegacion/navegacion.component';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -59,7 +63,7 @@ import { UsuarioEditComponent } from './Components/usuario-edit/usuario-edit.com
     TipoproductoComponent,
     TipousuarioComponent,
     UsuarioComponent,    
-    EmpresaEditComponent, AreasTrabajoEditComponent, ClientesEditComponent, CxcobrarEditComponent, CxpagarEditComponent, EmpleadosEditComponent, FormapagoEditComponent, PagosEditComponent, ProductoEditComponent, ProveedorEditComponent, SucursalesEditComponent, TipoproductoEditComponent, TipousuarioEditComponent, UsuarioEditComponent
+    EmpresaEditComponent, AreasTrabajoEditComponent, ClientesEditComponent, CxcobrarEditComponent, CxpagarEditComponent, EmpleadosEditComponent, FormapagoEditComponent, PagosEditComponent, ProductoEditComponent, ProveedorEditComponent, SucursalesEditComponent, TipoproductoEditComponent, TipousuarioEditComponent, UsuarioEditComponent, NavegacionComponent
   ],
 
 
@@ -67,7 +71,10 @@ import { UsuarioEditComponent } from './Components/usuario-edit/usuario-edit.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatMenuModule    
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

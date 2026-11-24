@@ -10,6 +10,9 @@ import { DataService } from '../../services/data.service';
 })
 export class SucursalesComponent implements OnInit {
 
+
+    Empresalist: any;  
+
   TUser: any = [];
   user: sucursales = {
     idsuc: null,
@@ -24,6 +27,7 @@ export class SucursalesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+    this.getDropListEmpresa();
   }
 
   getUser() {
@@ -65,4 +69,16 @@ export class SucursalesComponent implements OnInit {
         err => console.error(err)
       );
   }
+
+
+getDropListEmpresa() {
+    this.Data.getDropListEmpresa().subscribe((data:any)=>{
+      this.Empresalist=data;
+    })
+  }
+
+
+
+
+
 }

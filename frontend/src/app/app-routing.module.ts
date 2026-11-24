@@ -19,6 +19,8 @@ import { TipousuarioEditComponent } from './Components/tipousuario-edit/tipousua
 import { UsuarioEditComponent } from './Components/usuario-edit/usuario-edit.component';
 
 
+import { NavegacionComponent } from './Components/navegacion/navegacion.component';
+
 
 
 import { ProveedorComponent } from './Components/proveedor/proveedor.component';
@@ -36,6 +38,17 @@ import { TipousuarioComponent } from './Components/tipousuario/tipousuario.compo
 import { UsuarioComponent } from './Components/usuario/usuario.component';
 
 const routes: Routes = [
+
+{
+    path: 'navegacion',
+    component:NavegacionComponent
+  },
+
+
+
+
+
+
     {
     path: 'empresa',
     component :EmpresaComponent

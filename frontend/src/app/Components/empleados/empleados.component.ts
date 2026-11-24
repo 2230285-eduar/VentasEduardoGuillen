@@ -29,11 +29,37 @@ export class EmpleadosComponent implements OnInit {
     fecha_creacion: null
   };
 
+  Empresalist: any;
+Sucursaleslist: any;
+Arealist: any;
+
   constructor(private Data: DataService) { }
 
   ngOnInit(): void {
     this.getUser();
+    this.getDropListEmpresa();
+this.getDropListSucursales();
+this.getDropListArea();
   }
+
+
+getDropListEmpresa() {
+  this.Data.getDropListEmpresa().subscribe((data:any) => {
+    this.Empresalist = data;
+  })
+}
+
+getDropListSucursales() {
+  this.Data.getDropListSucursales().subscribe((data:any) => {
+    this.Sucursaleslist = data;
+  })
+}
+
+getDropListArea() {
+  this.Data.getDropListArea().subscribe((data:any) => {
+    this.Arealist = data;
+  })
+}
 
   getUser() {
     this.Data.getAll('/empleados')

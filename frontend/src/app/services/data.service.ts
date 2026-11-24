@@ -32,6 +32,20 @@ getOne(id: string, url: string) {
   update(id: string|number, updated: any , url: string): Observable<any> {
     return this.http.post(`${this.API_URI}` + url + `/${id}`, updated);
   }
+
+getDropListEmpresa():Observable<any[]>{
+return this.http.get<any>(this.API_URI+'/empresa')
+}
+
+getDropListSucursales():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/sucursales')
+}
+
+getDropListArea():Observable<any[]>{
+  return this.http.get<any>(this.API_URI+'/area_trabajo')
+}
+
+
   save(Usuario: any, url: string) {
      let headers = new HttpHeaders();
      headers = new HttpHeaders().set('Content-Type', 'application/json');

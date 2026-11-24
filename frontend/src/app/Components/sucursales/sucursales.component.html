@@ -11,6 +11,19 @@
           <input type="text" readonly="readonly" [(ngModel)]="user.idsuc" name="idsuc" placeholder="No" class="form-control" required hidden>
         </div>
 
+
+
+                    <div class="form-group">
+                        <option>Seleccione la Empresa</option>
+                          <select class="form-control" size="1" [(ngModel)]="user.idempresa" name="idempresa" required>
+                                 <option *ngFor="let lista of Empresalist" value={{lista.idempresa}}>{{lista.nombre}}</option>
+                        </select>
+                      </div>
+
+
+
+
+
         <div class="form-group">
           <label for="" class="control-label">Empresa (ID)</label>
           <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EMPRESA (ID)" class="form-control" autofocus>
@@ -20,6 +33,11 @@
           <label for="" class="control-label">Sucursal</label>
           <input type="text" [(ngModel)]="user.sucursal" name="sucursal" placeholder="DIGITE SUCURSAL" class="form-control">
         </div>
+
+
+
+
+
 
         <div class="form-group">
           <label for="" class="control-label">Direccion</label>

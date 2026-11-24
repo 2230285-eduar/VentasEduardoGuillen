@@ -26,11 +26,31 @@ export class ClientesComponent implements OnInit {
     estado: 'Activo'
   };
 
+
+
+Empresalist: any;
+  Sucursaleslist: any;
+
   constructor(private Data: DataService) { }
 
   ngOnInit(): void {
+    this.getDropListEmpresa();
+    this.getDropListSucursales();
     this.getUser();
   }
+
+getDropListEmpresa() {
+    this.Data.getDropListEmpresa().subscribe((data:any) => {
+      this.Empresalist = data;
+    })
+  }
+
+  getDropListSucursales() {
+    this.Data.getDropListSucursales().subscribe((data:any) => {
+      this.Sucursaleslist = data;
+    })
+  }
+
 
   getUser() {
     this.Data.getAll('/clientes')
