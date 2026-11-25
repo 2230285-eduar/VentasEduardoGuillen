@@ -12,44 +12,61 @@
         </div>
 
         <div class="form-group">
-          <label for="" class="control-label">Empresa (ID)</label>
-          <input type="number" [(ngModel)]="user.idempresa" name="idempresa" placeholder="DIGITE EMPRESA (ID)" class="form-control" autofocus>
-        </div>
+  <label for="" class="control-label">Empresa</label>
+  <select class="form-control" [(ngModel)]="user.idempresa" name="idempresa" required>
+    <option *ngFor="let lista of Empresalist" value={{lista.idempresa}}>{{lista.nombre}}</option>
+  </select>
+</div>
 
-        <div class="form-group">
-          <label for="" class="control-label">Venta (No.)</label>
-          <input type="number" [(ngModel)]="user.num_venta" name="num_venta" placeholder="DIGITE VENTA (NO.)" class="form-control">
-        </div>
+<div class="form-group">
+  <label for="" class="control-label">Sucursal</label>
+  <select class="form-control" [(ngModel)]="user.idsuc" name="idsuc" required>
+    <option *ngFor="let lista of Sucursaleslist" value={{lista.idsuc}}>{{lista.sucursal}}</option>
+  </select>
+</div>
 
-        <div class="form-group">
-          <label for="" class="control-label">Sucursal (ID)</label>
-          <input type="number" [(ngModel)]="user.idsuc" name="idsuc" placeholder="DIGITE SUCURSAL (ID)" class="form-control">
-        </div>
 
-        <div class="form-group">
-          <label for="" class="control-label">Cliente (No.)</label>
-          <input type="number" [(ngModel)]="user.num_clie" name="num_clie" placeholder="DIGITE CLIENTE (NO.)" class="form-control">
-        </div>
+<div class="form-group">
+  <label for="" class="control-label">Cliente</label>
+  <select class="form-control" [(ngModel)]="user.num_clie" name="num_clie" required>
+    <option *ngFor="let lista of Clienteslist" value={{lista.num_clie}}>{{lista.nombre}}</option>
+  </select>
+</div>
 
-        <div class="form-group">
-          <label for="" class="control-label">Usuario (ID)</label>
-          <input type="number" [(ngModel)]="user.userid" name="userid" placeholder="DIGITE USUARIO (ID)" class="form-control">
-        </div>
 
-        <div class="form-group">
-          <label for="" class="control-label">Forma de pago (ID)</label>
-          <input type="number" [(ngModel)]="user.idfpago" name="idfpago" placeholder="DIGITE FORMA DE PAGO (ID)" class="form-control">
-        </div>
+<div class="form-group">
+  <label for="" class="control-label">Venta No.</label>
+  <select class="form-control" [(ngModel)]="user.num_venta" name="num_venta" required>
+    <option *ngFor="let lista of EncabezadoVentalist" value={{lista.num_venta}}>{{lista.num_venta}}</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="" class="control-label">Usuario</label>
+  <select class="form-control" [(ngModel)]="user.userid" name="userid" required>
+    <option *ngFor="let lista of Usuariolist" value={{lista.userid}}>{{lista.usuario}}</option>
+  </select>
+</div>
+
+
+       <div class="form-group">
+  <label for="" class="control-label">Forma de pago</label>
+  <select class="form-control" [(ngModel)]="user.idfpago" name="idfpago" required>
+    <option *ngFor="let lista of Formapagolist" value={{lista.idfpago}}>{{lista.formapago}}</option>
+  </select>
+</div>
 
         <div class="form-group">
           <label for="" class="control-label">Fecha Pago</label>
           <input type="date" [(ngModel)]="user.fecha_pago" name="fecha_pago" placeholder="Seleccione la Fecha" class="form-control">
         </div>
 
-        <div class="form-group">
-          <label for="" class="control-label">Producto (No.)</label>
-          <input type="number" [(ngModel)]="user.num_prod" name="num_prod" placeholder="DIGITE PRODUCTO (NO.)" class="form-control">
-        </div>
+      <div class="form-group">
+  <label for="" class="control-label">Producto</label>
+  <select class="form-control" [(ngModel)]="user.num_prod" name="num_prod" required>
+    <option *ngFor="let lista of Productolist" value={{lista.num_prod}}>{{lista.descripcion}}</option>
+  </select>
+</div>
 
         <div class="form-group">
           <label for="" class="control-label">Cantidad</label>
@@ -79,16 +96,23 @@
         <button type="submit" class="btn btn-primary" formnovalidate value="Save" onclick="javascript:alert('Registro Almacenado')">
           Agregar
         </button>
+        <button (click)="exportToExcel()" class="btn btn-secondary">Exportar a Excel</button>
+        &nbsp;&nbsp; <button class="btn btn-dark" (click)="openPDF()">Descargar PDF</button>`
+
       </form>
     </div>
   </div>
+<div class="form-group">
+          <input type="text" class="form-control" name="filterPost" placeholder="Digite el Pago que desea Buscar" [(ngModel)]="filterPost">
+        </div>
+
 </div>
 <br>
 
 <div class="container-fluid">
   <div class="row mt-4">
     <div class="table-responsive">
-      <table class="table table-bordered table-hover">
+      <table class="table table-bordered table-hover" id="tabla">
         <thead>
           <tr>
           <th>NO</th>
@@ -111,7 +135,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let User of TUser">
+          <tr *ngFor="let User of TUser | filterpago:filterPost">
           <td>{{User.idpago}}</td>
           <td>{{User.idempresa}}</td>
           <td>{{User.num_venta}}</td>

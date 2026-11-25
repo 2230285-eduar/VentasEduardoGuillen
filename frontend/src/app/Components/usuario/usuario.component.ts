@@ -3,6 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { usuario } from '../../interfaces/user';
 import { DataService } from '../../services/data.service';
 
+
+import { ViewChild, ElementRef } from '@angular/core';
+
+import * as XLSX from 'xlsx';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
@@ -28,7 +35,14 @@ Sucursaleslist: any;
 TipoUsuariolist: any;
 Empleadoslist: any;
 
+name = 'Empresas.xlsx';
+
+
   constructor(private Data: DataService) { }
+
+@ViewChild('htmlData') htmlData!: ElementRef;
+  filterPost = '';
+
 
   ngOnInit(): void {
     this.getUser();
@@ -105,4 +119,25 @@ getDropListEmpleados() {
         err => console.error(err)
       );
   }
+exportToExcel(): void {
+    let element = document.getElementById('tabla');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+    XLSX.writeFile(book, this.name);
+  }
+public openPDF(): void {
+    let DATA: any = document.getElementById('tabla');
+    html2canvas(DATA).then((canvas) => {
+      let fileWidth = 208;
+      let fileHeight = (canvas.height * fileWidth) / canvas.width;
+      const FILEURI = canvas.toDataURL('image/png');
+      let PDF = new jsPDF('p', 'mm', 'a4');
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+      PDF.save('empresas.pdf');
+    });
+  }
+
+
 }

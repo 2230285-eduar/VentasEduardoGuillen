@@ -42,6 +42,21 @@ import { NavegacionComponent } from './Components/navegacion/navegacion.componen
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterempresaPipe } from './pipes/filterempresa.pipe';
+import { FilterproductoPipe } from './pipes/filterproducto.pipe';
+import { FilterareaPipe } from './pipes/filterarea.pipe';
+import { FilterclientePipe } from './pipes/filtercliente.pipe';
+import { FiltercxcobrarPipe } from './pipes/filtercxcobrar.pipe';
+import { FiltercxpagarPipe } from './pipes/filtercxpagar.pipe';
+import { FilterempleadoPipe } from './pipes/filterempleado.pipe';
+import { FilterformapagoPipe } from './pipes/filterformapago.pipe';
+import { FilterpagoPipe } from './pipes/filterpago.pipe';
+import { FilterproveedorPipe } from './pipes/filterproveedor.pipe';
+import { FiltersucursalPipe } from './pipes/filtersucursal.pipe';
+import { FiltertipoproductoPipe } from './pipes/filtertipoproducto.pipe';
+import { FiltertipousuarioPipe } from './pipes/filtertipousuario.pipe';
+import { FilterusuarioPipe } from './pipes/filterusuario.pipe';
+
 
 
 
@@ -63,7 +78,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TipoproductoComponent,
     TipousuarioComponent,
     UsuarioComponent,    
-    EmpresaEditComponent, AreasTrabajoEditComponent, ClientesEditComponent, CxcobrarEditComponent, CxpagarEditComponent, EmpleadosEditComponent, FormapagoEditComponent, PagosEditComponent, ProductoEditComponent, ProveedorEditComponent, SucursalesEditComponent, TipoproductoEditComponent, TipousuarioEditComponent, UsuarioEditComponent, NavegacionComponent
+    EmpresaEditComponent, AreasTrabajoEditComponent, ClientesEditComponent, CxcobrarEditComponent, CxpagarEditComponent, EmpleadosEditComponent, FormapagoEditComponent, PagosEditComponent, ProductoEditComponent, ProveedorEditComponent, SucursalesEditComponent, TipoproductoEditComponent, TipousuarioEditComponent, UsuarioEditComponent, NavegacionComponent, FilterempresaPipe, FilterproductoPipe, FilterareaPipe, FilterclientePipe, FiltercxcobrarPipe, FiltercxpagarPipe, FilterempleadoPipe, FilterformapagoPipe, FilterpagoPipe, FilterproveedorPipe, FiltersucursalPipe, FiltertipoproductoPipe, FiltertipousuarioPipe, FilterusuarioPipe
   ],
 
 
